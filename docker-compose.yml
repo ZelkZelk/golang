@@ -1,0 +1,15 @@
+version: '3'
+services:
+  golang:
+    container_name: zelkzelk-golang
+    image: zelkzelk/golang
+    build:
+      context: .
+      args:
+        GIT_NAME: ${GIT_NAME}
+        GIT_EMAIL: ${GIT_EMAIL}
+    volumes:
+      - ./:/usr/src/app
+      - $SSH_AUTH_SOCK:$SSH_AUTH_SOCK
+    environment:
+      - SSH_AUTH_SOCK=$SSH_AUTH_SOCK
